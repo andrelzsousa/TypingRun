@@ -1,52 +1,37 @@
-import { useEffect, useRef, useState } from 'react';
+import {useRef, useState } from 'react';
+import Text from './Text';
+import StopWatch from './StopWatch';
+import Finish from './Finish';
 
 
-
+//https://www.speedtypingonline.com/typing-equations
 function App() {
-  const lorem = "non lorem veniam duis et labore nisi."
+  // const lorem = "non lorem veniam duis et labore nisi."
+  const lorem = "non lorem"
   const textObj = lorem.split('').map((c, i) => {
     return {char: c, style: 'default', i}
   })
-  
   const [text, setText] = useState(textObj)
-  const target = useRef(0)
+  const textLen = text.length
+  const curIndex = useRef(0)
+  const hits = useRef(0)
 
-  useEffect(() => {
-    function checkKey(curIndex, keyPressed){
-        if(keyPressed === "Backspace"){
-          setText((items) => items.map((item) => {
-            return item.i === curIndex ? { ...item, style: 'default' } : item
-          }))
-          return
-        }
+  //stopWatch
+  const [time, setTime] = useState(0)
+  const [isActive, setIsActive] = useState(false) 
 
-        setText((items) => items.map((item) => {
-          return item.i === curIndex ? { ...item, style: text.at(curIndex).char === keyPressed ? 'hit' : 'miss' } : item
-        }))
-      
-    }
 
-    function callback(event){
-      if(event.key === "Backspace"){
-        target.current--
-        checkKey(target.current, event.key)
-      }
-      else{
-        checkKey(target.current, event.key)
-        target.current++
-      }
-    }
 
-    document.addEventListener("keydown", callback)
-
-    return () => {document.removeEventListener("keydown", callback)}
-  }, [text, setText])
-
-  
+  console.log()
   return (
-  <div>
-    <p>{text.map(c => <span className={c.style} key={c.i}>{c.char}</span>)}</p>
-  </div>
+    <div>
+
+      <Text setText={setText} curIndex={curIndex} isActive= {isActive} setIsActive={setIsActive} hits={hits}>
+        {text}
+      </Text>
+      <StopWatch time={time} isActive={isActive} setTime={setTime}/>
+      {text.length === curIndex.current && <Finish hits={hits} textLen={textLen} />}
+    </div>
   );
 }
 
