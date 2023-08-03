@@ -1,21 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:wght@300;400;700&display=swap');
+
+.main{
+  background-image: url('./assets/bg.png');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.box-title{
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 2em;
+  width: 70%;
 }
 
+.time{
+  color: #EBEBEB;
+  font-size: 91px;
+  font-weight: 400
+  ;
+}
 .miss{
-  background-color: red;
+  background-color: #FF5F5F;
+  fill: rgba(255, 255, 255, 0.01);
+  stroke-width: 2px;
+  stroke: rgba(73, 73, 73, 0.25);
+  backdrop-filter: blur(14.5px);
 }
 
 .hit{
-  background-color: green;
+  background-color: #74AA5A;
+}
+
+.title{
+  color: #EBEBEB;
+  font-size: 91px;
+  font-weight: 700
+  ;
 }

@@ -18,7 +18,7 @@ function StopWatch({time, isActive, setTime, finish}) {
 
     return (
         <div>
-            <p>{time}</p>
+            <p className='time'>{time}s</p>
         </div>
     )
 }
