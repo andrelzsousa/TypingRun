@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import Text from './Text';
 import StopWatch from './StopWatch';
 import Finish from './Finish';
@@ -22,8 +22,7 @@ function App() {
     window.location.reload()
   }
 
-  const movie = useRef(getRandomItem())
-  console.log(movie.current)
+  const movie = useRef(getRandomItem()) 
   const dummyText = movie.current.plot.toLowerCase()
 
   const textObj = dummyText.split('').map((c, i) => {
@@ -35,28 +34,28 @@ function App() {
   const hits = useRef(0)
 
   //stopWatch
-  const [time, setTime] = useState(0)
+  const [time, setTime] = useState(30)
   const [isActive, setIsActive] = useState(false)
 
-
-
-  console.log()
   return (
     <div className='main'>
       <p className='title'>TypingRun</p>
+      {!isActive && time !== 0 && textLen !== curIndex.current && <p className='subtitle'>Start Typing to begin!</p>}
+      {isActive && <p className='subtitle'>Run!</p>}
+      {!isActive && (time === 0 || textLen === curIndex.current) && <p className='subtitle'>Great Job!</p>}
 
       <StopWatch time={time} isActive={isActive} setTime={setTime} />
       <div className='box-title'>
-        <Text setText={setText} curIndex={curIndex} isActive={isActive} setIsActive={setIsActive} hits={hits}>
+        <Text setText={setText} curIndex={curIndex} isActive={isActive} setIsActive={setIsActive} hits={hits} time={time}>
           {text}
         </Text>
       </div>
       
-      {/* <p className=''>{!isActive? 'Start Typing to begin!' : 'Run!'}</p> */}
+      
       <div className='buttons'>
-        <Button><ReplayRoundedIcon fontSize='large' /></Button>
-        <Button handler={handleFoward}><ArrowForwardIosRoundedIcon fontSize='large' /></Button>
-        {text.length === curIndex.current && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title} />}
+        {/* <Button><ArrowForwardIosRoundedIcon fontSize='large' /></Button> */}
+        <Button handler={handleFoward}><ReplayRoundedIcon fontSize='large' /></Button>
+        {(time === 0 || textLen === curIndex.current) && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title} curIndex={curIndex}/>}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
 const KEY = "c6f98f63"
+const invalidKeys = ['Backspace', 'Shift', 'CapsLock', 'Alt', 'Dead']
 
-function Text({ setText, curIndex, hits, isActive, setIsActive, children, setDummyText }) {
+function Text({ setText, curIndex, hits, isActive, setIsActive, children, time }) {
 
     useEffect(() => {
         async function getMoviesPlotText(){
@@ -51,10 +52,10 @@ function Text({ setText, curIndex, hits, isActive, setIsActive, children, setDum
 
         function callback(event) {
 
-            if (curIndex.current === children.length) return
+            if (curIndex.current === children.length || time === 0) return
+            console.log(event.key)
 
-
-            if (curIndex.current === 0 && event.key !== "Backspace" && event.key !== "Shift" && event.key !== "CapsLock" && !isActive) {
+            if (curIndex.current === 0 && !invalidKeys.includes(event.key) && !isActive) {
                 setIsActive((s) => !s)
             }
 
@@ -65,7 +66,7 @@ function Text({ setText, curIndex, hits, isActive, setIsActive, children, setDum
                 }
             }
             else {
-                if (event.key !== "Shift" && event.key !== "CapsLock") {
+                if (!invalidKeys.includes(event.key)) {
                     checkKey(curIndex.current, event.key)
                     curIndex.current++
                 }
@@ -81,7 +82,7 @@ function Text({ setText, curIndex, hits, isActive, setIsActive, children, setDum
         return () => {
             document.removeEventListener("keydown", callback)
         }
-    }, [children, setText, curIndex, isActive, setIsActive, hits])
+    }, [children, setText, curIndex, isActive, setIsActive, hits, time])
 
     return (
         <div>

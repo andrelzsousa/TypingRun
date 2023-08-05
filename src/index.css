@@ -7,6 +7,12 @@
   color: #EBEBEB;
   font-size: 91px;
   font-weight: 700;
+  margin-top: .5em;
+}
+
+.subtitle{
+  color: #EBEBEB;
+  font-size: 51px;
   margin: .5em;
 }
 
@@ -78,11 +84,13 @@
 .buttons{
   display: flex;
   gap: 1em;
-  
+  align-items: center;
 }
 
 .buttons Button{
   cursor: pointer;
+  align-self: stretch;
+
 }
 
 .finish{
