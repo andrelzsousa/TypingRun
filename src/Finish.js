@@ -10,11 +10,11 @@ function Finish({hits, textLen, time, movieTitle}) {
     const accuracy = hits.current/textLen
 
     return (
-        <div>
-            <p>finish. </p>
-            <p>Hits: {hits.current}. Errors: {errors}</p>
+        <div className='finish'>
+
+            {/* <p>Hits: {hits.current}. Errors: {errors}</p> */}
             {/* <p>NET WPM: {parseInt(netWPM)}</p> */}
-            <p>RAW WPM: {parseInt(rawWPM)}</p>
+            <p>WPM: {parseInt(rawWPM)}</p>
             <p>Accuracy: {parseInt(accuracy * 100)}%</p>
             <p>Movie: {movieTitle}</p>
         </div>

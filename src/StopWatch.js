@@ -17,7 +17,7 @@ function StopWatch({time, isActive, setTime, finish}) {
     }, [isActive, setTime])
 
     return (
-        <div>
+        <div className='box-time'>
             <p className='time'>{time}s</p>
         </div>
     )

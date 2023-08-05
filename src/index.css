@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Poppins:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+
+
+.title{
+  color: #EBEBEB;
+  font-size: 91px;
+  font-weight: 700;
+  margin: .5em;
+}
 
 .main{
   background-image: url('./assets/bg.png');
@@ -8,12 +18,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   overflow: hidden;
 }
 
 .box-title{
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 36px;
   background: rgba( 255, 255, 255, 0.05 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -23,14 +33,28 @@
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding: 2em;
   width: 70%;
+  margin-bottom: 1em;
+}
+
+.header{
+  color: #EBEBEB;
+  font-size: 51px;
+  font-weight: 400
+  ;
 }
 
 .time{
   color: #EBEBEB;
   font-size: 91px;
-  font-weight: 400
-  ;
+  font-weight: 400;
 }
+
+.box-time{
+  position: absolute;
+  top: 3em;
+  right: 2em;
+}
+
 .miss{
   background-color: #FF5F5F;
   fill: rgba(255, 255, 255, 0.01);
@@ -43,9 +67,31 @@
   background-color: #74AA5A;
 }
 
-.title{
-  color: #EBEBEB;
-  font-size: 91px;
-  font-weight: 700
-  ;
+.btn{
+  background-color: #E9B384;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 1em;
 }
+
+.buttons{
+  display: flex;
+  gap: 1em;
+  
+}
+
+.buttons Button{
+  cursor: pointer;
+}
+
+.finish{
+  color: #EBEBEB;
+  font-size: 32px;
+}
+
+.finish p{
+  margin-bottom: .5em;
+}
+
+

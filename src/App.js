@@ -5,6 +5,9 @@ import Finish from './Finish';
 import { moviesPlots } from './moviesPlots';
 import './reset.css'
 import './index.css'
+import Button from './Button';
+import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
 
 //https://www.speedtypingonline.com/typing-equations
@@ -13,6 +16,10 @@ function App() {
   function getRandomItem() {
     const randomIndex = Math.floor(Math.random() * moviesPlots.length);
     return moviesPlots[randomIndex];
+  }
+
+  function handleFoward(){
+    window.location.reload()
   }
 
   const movie = useRef(getRandomItem())
@@ -36,15 +43,21 @@ function App() {
   console.log()
   return (
     <div className='main'>
+      <p className='title'>TypingRun</p>
 
-        <StopWatch time={time} isActive={isActive} setTime={setTime} />
+      <StopWatch time={time} isActive={isActive} setTime={setTime} />
       <div className='box-title'>
         <Text setText={setText} curIndex={curIndex} isActive={isActive} setIsActive={setIsActive} hits={hits}>
           {text}
         </Text>
       </div>
-      {text.length === curIndex.current && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title}/>}
-      <p className='title'>TypingRun</p>
+      
+      {/* <p className=''>{!isActive? 'Start Typing to begin!' : 'Run!'}</p> */}
+      <div className='buttons'>
+        <Button><ReplayRoundedIcon fontSize='large' /></Button>
+        <Button handler={handleFoward}><ArrowForwardIosRoundedIcon fontSize='large' /></Button>
+        {text.length === curIndex.current && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title} />}
+      </div>
     </div>
   );
 }
