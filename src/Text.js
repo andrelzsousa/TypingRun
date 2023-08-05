@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const KEY = "c6f98f63"
-const invalidKeys = ['Backspace', 'Shift', 'CapsLock', 'Alt', 'Dead']
+const invalidKeys = ['Backspace', 'Shift', 'CapsLock', 'Alt', 'Dead', 'F5', 'F12']
 
 function Text({ setText, curIndex, hits, isActive, setIsActive, children, time }) {
 

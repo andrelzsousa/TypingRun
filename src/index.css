@@ -37,9 +37,10 @@
   -webkit-backdrop-filter: blur( 6px );
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
-  padding: 2em;
+  padding: 1em 2em;
   width: 70%;
   margin-bottom: 1em;
+  line-height: 1.5em;
 }
 
 .header{
@@ -74,6 +75,7 @@
 }
 
 .btn{
+  
   background-color: #E9B384;
   color: #000;
   border: none;
@@ -101,5 +103,26 @@
 .finish p{
   margin-bottom: .5em;
 }
+
+.best-box{
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+
+.best-box p{
+  color: #EBEBEB;
+  font-size: 24px;
+}
+
+.reset{
+  padding: .5em 1em;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+
 
 

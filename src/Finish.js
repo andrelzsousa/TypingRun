@@ -1,14 +1,31 @@
-function Finish({ hits, textLen, time, movieTitle, curIndex }) {
+import { useState, useEffect } from 'react'
+
+function Finish({ hits, textLen, time, movieTitle, curIndex, best, setBest }) {
+
+    
 
     const typedEntries = curIndex.current + 1
     const errors = typedEntries - hits.current
-    // const minuteTime = time/60
-    const minuteTime = (30 - time) / 60
+    const minuteTime = (30 - time) / 60 === 0 ? 1/60 : (30 - time) / 60
 
     const rawWPM = (typedEntries / 5) / minuteTime
-    const netWPM = rawWPM - (errors / minuteTime)
-    console.log()
+    // const netWPM = rawWPM - (errors / minuteTime)
     const accuracy = hits.current / typedEntries
+
+    useEffect(() => {
+        
+        if(best === '0') return
+
+
+
+        if(rawWPM > best){
+            setBest(parseInt(rawWPM))
+            localStorage.setItem('best', JSON.stringify(rawWPM))
+        }
+
+
+    }, [rawWPM, best, setBest])
+
 
     return (
         <>

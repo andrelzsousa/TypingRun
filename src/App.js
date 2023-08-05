@@ -22,6 +22,12 @@ function App() {
     window.location.reload()
   }
 
+  function handleBestReset(){
+    setBest('0')
+    handleFoward()
+    localStorage.setItem('best', JSON.stringify(0))
+  }
+
   const movie = useRef(getRandomItem()) 
   const dummyText = movie.current.plot.toLowerCase()
 
@@ -36,6 +42,12 @@ function App() {
   //stopWatch
   const [time, setTime] = useState(30)
   const [isActive, setIsActive] = useState(false)
+
+  const [best, setBest] = useState(() => {
+    const storedValue = parseInt((localStorage.getItem('best')))
+
+    return storedValue ? JSON.parse(storedValue) : 0
+  })
 
   return (
     <div className='main'>
@@ -55,7 +67,12 @@ function App() {
       <div className='buttons'>
         {/* <Button><ArrowForwardIosRoundedIcon fontSize='large' /></Button> */}
         <Button handler={handleFoward}><ReplayRoundedIcon fontSize='large' /></Button>
-        {(time === 0 || textLen === curIndex.current) && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title} curIndex={curIndex}/>}
+        {(time === 0 || textLen === curIndex.current) && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title} curIndex={curIndex} best={best} setBest={setBest}/>}
+      </div>
+        
+      <div className='best-box'>
+        <p>Your highest score: {best}</p>
+        <button onClick={handleBestReset} className='btn reset'>Reset</button>
       </div>
     </div>
   );
