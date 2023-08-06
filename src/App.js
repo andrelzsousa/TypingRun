@@ -71,7 +71,7 @@ function App() {
       </div>
         
       <div className='best-box'>
-        <p>Your highest score: {best}</p>
+        <p>Your highest score: {best} WPM</p>
         <button onClick={handleBestReset} className='btn reset'>Reset</button>
       </div>
     </div>

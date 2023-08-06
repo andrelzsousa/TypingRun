@@ -86,7 +86,7 @@ function Text({ setText, curIndex, hits, isActive, setIsActive, children, time }
 
     return (
         <div>
-            <h1>{children.map(c => <span className={c.style} key={c.i}>{c.char === c.charPressed ? c.charPressed : c.char}</span>)}</h1>
+            <h1 className='text-box'>{children.map(c => <span className={`${c.style} ${curIndex.current === c.i? 'blinking' : ''}`} key={c.i}>{c.char === c.charPressed ? c.charPressed : c.char}{''}</span>)}</h1>
         </div>
     );
 }
