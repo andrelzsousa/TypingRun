@@ -13,6 +13,7 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 //https://www.speedtypingonline.com/typing-equations
 function App() {
 
+
   function getRandomItem() {
     const randomIndex = Math.floor(Math.random() * moviesPlots.length);
     return moviesPlots[randomIndex];
@@ -26,6 +27,10 @@ function App() {
     setBest('0')
     handleFoward()
     localStorage.setItem('best', JSON.stringify(0))
+  }
+
+  function handleClickText(){
+    hiddenInput.current.focus()
   }
 
   const movie = useRef(getRandomItem()) 
@@ -49,15 +54,18 @@ function App() {
     return storedValue ? JSON.parse(storedValue) : 0
   })
 
+  const hiddenInput = useRef(null)
+
   return (
     <div className='main'>
+      <input type='text' style={{display: 'none'}} ref={hiddenInput}/>
       <p className='title'>TypingRun</p>
       {!isActive && time !== 0 && textLen !== curIndex.current && <p className='subtitle'>Start Typing to begin!</p>}
       {isActive && <p className='subtitle'>Run!</p>}
       {!isActive && (time === 0 || textLen === curIndex.current) && <p className='subtitle'>Great Job!</p>}
 
       <StopWatch time={time} isActive={isActive} setTime={setTime} />
-      <div className='box-title'>
+      <div className='box-title' onClick={handleClickText}>
         <Text setText={setText} curIndex={curIndex} isActive={isActive} setIsActive={setIsActive} hits={hits} time={time}>
           {text}
         </Text>
