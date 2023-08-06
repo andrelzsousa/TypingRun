@@ -159,6 +159,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.hiddenInput{
+  align-self: center;
+  height: 5px;
+  opacity: 0.001;
+}
+
+
 @media only screen and (max-width: 800px) {
 
   .main{
@@ -173,6 +180,7 @@
   .subtitle{
     font-size: 24px;
     margin-left: 6%;
+    margin-bottom: .5em;
   }
 
   .box-title{

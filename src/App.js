@@ -66,11 +66,11 @@ function App() {
 
   return (
     <div className='main'>
-      <input type='text' ref={hiddenInput}/>
       <p className='title'>TypingRun</p>
       {!isActive && time !== 0 && textLen !== curIndex.current && <p className='subtitle'>Start Typing to begin!</p>}
       {isActive && <p className='subtitle'>Run!</p>}
       {!isActive && (time === 0 || textLen === curIndex.current) && <p className='subtitle'>Great Job!</p>}
+      <input type='text' ref={hiddenInput} className='hiddenInput'/>
 
       <StopWatch time={time} isActive={isActive} setTime={setTime} />
       <div className='box-title' ref={box}>
