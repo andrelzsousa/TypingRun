@@ -66,7 +66,7 @@ function App() {
 
   return (
     <div className='main'>
-      <input type='text' ref={hiddenInput} style={{display: 'none'}}/>
+      <input type='text' ref={hiddenInput}/>
       <p className='title'>TypingRun</p>
       {!isActive && time !== 0 && textLen !== curIndex.current && <p className='subtitle'>Start Typing to begin!</p>}
       {isActive && <p className='subtitle'>Run!</p>}
