@@ -15,7 +15,7 @@ function Text({ setText, curIndex, hits, isActive, setIsActive, children, time }
 
                 const res1 = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${imdbID}`)
                 const data1 = await res1.json()
-                console.log(data1.Plot)
+                // console.log(data1.Plot)
             }catch(e){
                 console.log(e)
             }

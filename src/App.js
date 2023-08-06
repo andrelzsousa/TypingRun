@@ -1,4 +1,4 @@
-import {  useRef, useState } from 'react';
+import {  useEffect, useRef, useState } from 'react';
 import Text from './Text';
 import StopWatch from './StopWatch';
 import Finish from './Finish';
@@ -7,7 +7,7 @@ import './reset.css'
 import './index.css'
 import Button from './Button';
 import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+// import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
 
 //https://www.speedtypingonline.com/typing-equations
@@ -55,17 +55,25 @@ function App() {
   })
 
   const hiddenInput = useRef(null)
+  const box = useRef(null)
+
+  useEffect(() => {
+    box.current.addEventListener('click', () => {
+      hiddenInput.current.focus()
+    })
+    
+  }, [])
 
   return (
     <div className='main'>
-      <input type='text' style={{display: 'none'}} ref={hiddenInput}/>
+      <input type='text' ref={hiddenInput} style={{display: 'none'}}/>
       <p className='title'>TypingRun</p>
       {!isActive && time !== 0 && textLen !== curIndex.current && <p className='subtitle'>Start Typing to begin!</p>}
       {isActive && <p className='subtitle'>Run!</p>}
       {!isActive && (time === 0 || textLen === curIndex.current) && <p className='subtitle'>Great Job!</p>}
 
       <StopWatch time={time} isActive={isActive} setTime={setTime} />
-      <div className='box-title' onClick={handleClickText}>
+      <div className='box-title' ref={box}>
         <Text setText={setText} curIndex={curIndex} isActive={isActive} setIsActive={setIsActive} hits={hits} time={time}>
           {text}
         </Text>
