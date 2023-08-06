@@ -31,8 +31,8 @@ function Finish({ hits, textLen, time, movieTitle, curIndex, best, setBest }) {
         <>
                 {/* <p>Hits: {hits.current}. Errors: {errors} minuteTime: {minuteTime}</p> */}
                 {/* <p>WPM: {parseInt(netWPM)}</p> */}
-                <p className='finish'>WPM: {parseInt(rawWPM)} |</p>
-                <p className='finish'>Accuracy: {parseInt(accuracy * 100)}% |</p>
+                <p className='finish'>WPM: {parseInt(rawWPM)}</p>
+                <p className='finish'>Accuracy: {parseInt(accuracy * 100)}%</p>
                 <p className='finish'>Movie: {movieTitle}</p>
         </>
     )

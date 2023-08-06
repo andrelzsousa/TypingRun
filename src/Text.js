@@ -75,7 +75,7 @@ function Text({ setText, curIndex, hits, isActive, setIsActive, children, time }
 
         document.addEventListener("keydown", callback)
 
-        if (curIndex.current === children.length && isActive) {
+        if ((curIndex.current === children.length || time === 0) && isActive) {
             stop()
             return
         }
