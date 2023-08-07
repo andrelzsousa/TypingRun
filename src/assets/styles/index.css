@@ -238,6 +238,7 @@
     align-items: center;
     font-size: 10px;
     gap: 1em;
+    bottom: .3em;
   }
 
   .best-box p{
