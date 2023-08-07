@@ -17,7 +17,7 @@
 }
 
 .main{
-  background-image: url('./assets/bg3.png');
+  background-image: url('../images/bg3.png');
   background-size: cover;
   /* background-color: #3D246C; */
   height: 100vh;
@@ -94,6 +94,11 @@
   border: none;
   border-radius: 8px;
   padding: 1em;
+}
+
+.btn:hover{
+  background-color: #eaa72c;
+  transition: 0.5s;
 }
 
 .buttons{

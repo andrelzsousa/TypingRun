@@ -2,21 +2,17 @@ import {  useEffect, useRef, useState } from 'react';
 import Text from './Text';
 import StopWatch from './StopWatch';
 import Finish from './Finish';
-import { moviesPlots } from './moviesPlots';
-import './reset.css'
-import './index.css'
+import { moviesPlotsPT, moviesPlots } from './moviesPlots';
+import '../assets/styles/reset.css'
+import '../assets/styles/index.css'
 import Button from './Button';
 import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
-// import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
-
-//https://www.speedtypingonline.com/typing-equations
 function App() {
 
-
   function getRandomItem() {
-    const randomIndex = Math.floor(Math.random() * moviesPlots.length);
-    return moviesPlots[randomIndex];
+    const randomIndex = Math.floor(Math.random() * moviesPlotsPT.length);
+    return moviesPlotsPT[randomIndex];
   }
 
   function handleFoward(){
@@ -29,12 +25,8 @@ function App() {
     localStorage.setItem('best', JSON.stringify(0))
   }
 
-  function handleClickText(){
-    hiddenInput.current.focus()
-  }
-
   const movie = useRef(getRandomItem()) 
-  const dummyText = movie.current.plot.toLowerCase()
+  const dummyText = movie.current.plot
 
   const textObj = dummyText.split('').map((c, i) => {
     return { char: c, style: 'default', i, charPressed: null }
@@ -79,9 +71,7 @@ function App() {
         </Text>
       </div>
       
-      
       <div className='buttons'>
-        {/* <Button><ArrowForwardIosRoundedIcon fontSize='large' /></Button> */}
         <Button handler={handleFoward}><ReplayRoundedIcon fontSize='large' /></Button>
         {(time === 0 || textLen === curIndex.current) && <Finish hits={hits} textLen={textLen} time={time} movieTitle={movie.current.title} curIndex={curIndex} best={best} setBest={setBest}/>}
       </div>

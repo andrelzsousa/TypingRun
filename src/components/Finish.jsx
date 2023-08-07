@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 function Finish({ hits, textLen, time, movieTitle, curIndex, best, setBest }) {
 
-    
-
     const typedEntries = curIndex.current + 1
-    const errors = typedEntries - hits.current
+    // const errors = typedEntries - hits.current
     const minuteTime = (30 - time) / 60 === 0 ? 1/60 : (30 - time) / 60
 
     const rawWPM = (typedEntries / 5) / minuteTime
@@ -15,8 +13,6 @@ function Finish({ hits, textLen, time, movieTitle, curIndex, best, setBest }) {
     useEffect(() => {
         
         if(best === '0') return
-
-
 
         if(rawWPM > best){
             setBest(parseInt(rawWPM))
