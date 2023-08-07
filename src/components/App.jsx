@@ -26,7 +26,7 @@ function App() {
   }
 
   const movie = useRef(getRandomItem()) 
-  const dummyText = movie.current.plot
+  const dummyText = /* movie.current.plot */ 'aaa'
 
   const textObj = dummyText.split('').map((c, i) => {
     return { char: c, style: 'default', i, charPressed: null }

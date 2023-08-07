@@ -214,18 +214,19 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: .8em;
     align-items: flex-end;
     justify-content: center;
   }
 
   .buttons Button{
     align-self: center;
+    margin-bottom: 10px;
   }
 
   .finish{
     align-self: center;
-    
+    font-size: 30px;
   }
 
   .finish::after{
