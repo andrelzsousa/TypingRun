@@ -46,12 +46,15 @@ function App() {
     return storedValue ? JSON.parse(storedValue) : 0
   })
 
+  const [modal, setModal] = useState(true)
+
   const hiddenInput = useRef(null)
   const box = useRef(null)
 
   useEffect(() => {
     box.current.addEventListener('click', () => {
       hiddenInput.current.focus()
+      setModal(false)
     })
     
   }, [])
@@ -66,6 +69,7 @@ function App() {
 
       <StopWatch time={time} isActive={isActive} setTime={setTime} />
       <div className='box-title' ref={box}>
+        {modal && <div className='modal'>Click here</div>}
         <Text setText={setText} curIndex={curIndex} isActive={isActive} setIsActive={setIsActive} hits={hits} time={time}>
           {text}
         </Text>
